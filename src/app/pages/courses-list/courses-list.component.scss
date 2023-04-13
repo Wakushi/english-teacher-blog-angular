@@ -1,0 +1,15 @@
+.courses-container {
+    padding: 2em 1em;
+    min-height: 100vh;
+    background-color: #99C2A2;
+
+    .class-selection-btns button {
+        background-color: #276e36;
+
+        &:hover,
+        &:focus {
+            background-color: #fff;
+            color: #276e36;
+        }
+      }
+}

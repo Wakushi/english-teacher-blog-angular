@@ -1,0 +1,15 @@
+.student-projects-container {
+    padding: 2em 1em;
+    min-height: 100vh;
+    background-color: bisque;
+
+    .class-selection-btns button {
+        background-color: #a0375d;
+
+        &:hover,
+        &:focus {
+            background-color: #fff;
+            color: #a0375d;
+        }
+    }
+}

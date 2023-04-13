@@ -1,0 +1,33 @@
+<section class="basic-flex edit-container">
+
+    <button class="basic-button back-button" (click)="returnToPage()">Back</button>
+    <h1>Edit</h1>
+    <div 
+        [id]="card.title" 
+        class="basic-card edit-card basic-flex"
+        [ngStyle]="{ backgroundColor : card.bgColor }"
+    >
+
+        <input class="edit-title" type="text" [(ngModel)]="card.title" />
+        <textarea class="edit-description" rows="3" [(ngModel)]="card.description"></textarea>
+        <textarea 
+            *ngIf="card.content" 
+            class="edit-content" 
+            rows="5" 
+            [(ngModel)]="card.content"
+        ></textarea>
+
+        <div class="basic-card-images">
+            <div *ngIf="card.images" class="basic-card-image-container">
+                <img 
+                    [src]="card.images[0]" 
+                    [alt]="card.title"
+                />
+            </div>
+        </div>
+
+    </div>
+
+<button class="basic-button completion-button" (click)="completeEdition()">Edit</button>
+
+</section>

@@ -1,0 +1,146 @@
+header {
+    box-shadow: 2px 2px 5px rgba(19, 19, 19, 0.473);
+    padding: 1em;
+    justify-content: space-between;
+    position: relative;
+
+    h1,
+    img {
+      cursor: pointer;
+    }
+
+}
+
+// HAMBURGER MENU
+
+.hamburger-icon {
+    position: fixed;
+    z-index: 2;
+    top: 10px;
+    right: 10px;
+    padding: 11px 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px rgba(19, 19, 19, 0.473);
+    cursor: pointer;
+  }
+  
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 25px;
+    height: 20.5px;
+    gap: 5px;
+    pointer-events: none;
+  }
+  
+  .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #111;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .bar.middle {
+    transform: scaleX(0);
+  }
+  
+  .hamburger-menu.open .bar.top {
+    transform: translateY(4.5px) rotate(45deg);
+  }
+  
+  .hamburger-menu.open .bar.bottom {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+
+  // MODAL MENU DISPLAY
+  
+  .modal-container {
+    position: relative;
+  
+  }
+  
+  .gallery-clean-modal {
+    position: fixed;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 5px rgba(19, 19, 19, 0.473);
+    z-index: 10;
+    top: 62px;
+    right: -2px;
+    border-radius: 8px 0 0 8px;
+    transition: 0.8s;
+    opacity: 1;
+    overflow: hidden;
+  }
+  
+  nav ul li {
+    text-transform: uppercase;
+    border-top: 1px rgba(0, 0, 0, 0.253) solid;
+    padding: 0.6em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+
+    &:hover,
+    &focus {
+        background-color: #17BEBB;
+        color: #fff;
+        box-shadow: inset 1px 1px 6px rgba(0, 0, 0, 0.548);
+    }
+
+  }
+
+  nav ul li:nth-child(1) {
+    border: none;
+  }
+
+  .create-link {
+    background-color: rgb(120, 211, 102);
+    
+    span {
+      transform: translateX(-15px);
+    }
+  }
+
+  .log-link {
+    background-color: antiquewhite;
+    
+    span {
+      transform: translateX(-15px);
+    }
+  }
+  
+  .display-clean-modal {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+
+
+.active {
+  font-weight: 900;
+  background-color: #87b9b9;
+  color: #fff;
+}
+
+
+
+
+@media screen and (min-width:768px) {
+
+  header {
+    
+    h1 {
+      font-size: 2rem;
+    }
+
+  }
+
+  .hamburger-icon {
+    top: 14px;
+  }
+
+}

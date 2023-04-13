@@ -1,0 +1,13 @@
+<section class="login-container basic-flex">
+    <h1>Log In</h1>
+    <form [formGroup]="loginForm" class="basic-flex">
+
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email"/>
+
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="password"/>
+
+        <button (click)="signIn(loginForm)" type="submit">Login</button>
+    </form>
+</section>

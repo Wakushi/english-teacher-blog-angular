@@ -1,0 +1,29 @@
+<section class="card-container teacher-posts-container">
+    <h1>Teacher's Posts</h1>
+    <div class="class-selection-btns basic-flex">
+        <button (click)="onUnfilterProjects()" class="basic-button">All</button>
+        <button (click)="onFilterProjects('5-3')" class="basic-button">5e3</button>
+        <button (click)="onFilterProjects('5-5')" class="basic-button">5e5</button>
+        <button (click)="onFilterProjects('4-2')" class="basic-button">4e2</button>
+        <button (click)="onFilterProjects('4-3')" class="basic-button">4e3</button>
+        <button (click)="onFilterProjects('4-5')" class="basic-button">4e5</button>
+    </div>
+    <ul *ngIf="displayedPosts$ | async as postsData" class="cards-list-table basic-flex">
+        <li *ngFor="let post of postsData">
+            <a 
+                [ngStyle]="{ 
+                    color : post.fontColor,
+                    backgroundColor : post.bgColor
+                }" 
+                (click)="scrollToAnchor(post.title)"> {{ post.title }}
+            </a>
+        </li>
+    </ul>
+    <ng-container *ngIf="displayedPosts$ | async as postsData">
+        <app-card
+          *ngFor="let post of postsData"
+          [card]="post"
+          (cardDeleted)="onPostDeleted($event)"
+        ></app-card>
+      </ng-container>
+</section>  

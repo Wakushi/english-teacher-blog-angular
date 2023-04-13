@@ -1,0 +1,66 @@
+<section class="create-form-container">
+    <div class="create-form-title basic-flex">
+        <img src="../../../assets/images/brush.png" class="icon-medium" alt="tools"/>
+        <h2>Teacher's workshop</h2>
+        <img src="../../../assets/images/camera.png" class="icon-medium" alt="tools"/>
+    </div>
+    <form [formGroup]="creationForm" class="basic-flex">
+
+        <div class="form-top basic-flex">
+            
+            <select id="type" formControlName="type">
+                <option value="students" [defaultSelected]="true">Student Project</option>
+                <option value="posts">Blog Post</option>
+                <option value="courses">Course</option>
+            </select>
+
+            <div class="form-color basic-flex">
+                <label for="fontColor">Font</label>
+                <input id="fontColor" type="color" formControlName="fontColor"/>       
+            </div> 
+
+            <div class="form-color basic-flex">
+                <label>Background</label>
+                <input id="bgColor" type="color" formControlName="bgColor"/>
+            </div>
+            
+        </div>
+           
+        <label for="title">Title</label>
+        <input id="title" type="text" formControlName="title"/>
+     
+        <label for="description">Description</label>
+        <textarea id="description" rows="4" formControlName="description"></textarea>
+        
+        <div class="form-class basic-flex">
+            <label for="class">Class</label>
+            <select id="class" formControlName="class">
+                 <option [defaultSelected]="true">---</option>
+                 <option value="5-3" >5 - 3</option>
+                 <option value="5-5" >5 - 5</option>
+                 <option value="4-2" >4 - 2</option>
+                 <option value="4-3" >4 - 3</option>
+                 <option value="4-5" >4 - 5</option>
+                 <option value="4" >4 (All)</option>
+                 <option value="5" >5 (All)</option>
+            </select> 
+        </div>
+        
+        <div class="course-input basic-flex" *ngIf="creationForm.value.type === 'courses'">
+            <label for="content">Course's Content</label>
+            <textarea id="content" rows="4" formControlName="content"></textarea>
+        </div>
+     
+        <label class="input-file" for="images">+ Images</label>
+        <input id="images" type="file" style="display:none;" multiple (change)="onFileChange($event)"/>
+
+        <ul>
+            <li *ngFor="let image of selectedImages"> - {{ image.name }}</li>
+        </ul>
+
+        <button *ngIf="!isCreating" type="submit" (click)="sendData()">Create</button>
+        <div *ngIf="isCreating" class="loader"></div>
+        
+    </form>
+
+</section>

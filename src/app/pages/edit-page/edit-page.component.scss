@@ -1,0 +1,44 @@
+.edit-container {
+    padding: 0 1em 2em 1em;
+    min-height: 100vh;
+    background-color: #48839b;
+    color: aliceblue;
+    flex-direction: column;
+    position: relative;
+
+    h1 {
+        font-size: 2.3rem;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        box-shadow: inset 1px 1px 4px #11111194;
+        padding: 0.3em;
+        font-size: 1.1rem;
+        background-color: white;
+        border: transparent;
+        border-radius: 5px;
+    }
+
+    .completion-button,
+    .back-button {
+        box-shadow: 1px 1px 4px #000000b0;
+    }
+
+    .completion-button {
+        width: 100%;
+        max-width: 1000px;
+        margin-bottom: 6em;
+    }
+
+    .back-button {
+        top: 10px;
+        right: 10px;
+        position: absolute;
+    }
+
+    .edit-card {
+        width: 100%;
+    }
+}

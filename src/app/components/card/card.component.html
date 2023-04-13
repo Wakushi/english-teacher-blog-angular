@@ -1,0 +1,78 @@
+<div 
+    [id]="card.title" 
+    class="basic-card basic-flex"
+    [ngStyle]="{ backgroundColor : card.bgColor }"
+>
+
+    <div *ngIf="isUserLogged" class="todo-icons-delete">
+        <i 
+            [ngClass]="{ 'iconActive' : areIconDisplayed }" 
+            (click)="deleteProject()"
+            class="fa-solid fa-check"
+        ></i>  
+        <i 
+            [ngClass]="{ 'iconActive' : areIconDisplayed }" 
+            (click)="toggleIconDisplay()" 
+            class="fa-solid fa-xmark"
+        ></i>
+        <i 
+            (click)="toggleIconDisplay()" 
+            class="fa-solid fa-trash"
+        ></i>
+    </div>
+
+    <i *ngIf="isUserLogged" (click)="editPost()" class="fa-solid fa-pen-to-square"></i>
+
+    <h4 [ngStyle]="{ color : card.fontColor }">{{ card.title }}</h4>   
+
+    <p [ngStyle]="{ color : card.fontColor }"> {{ card.description }} </p>
+
+    <div class="basic-card-images">
+        <div *ngIf="card.images" class="basic-card-image-container basic-flex">
+            <i 
+                *ngIf="card.images.length > 1" 
+                (click)="onPreviousImage()" 
+                class="fa-solid fa-circle-chevron-left"
+            ></i>
+            <img
+                (click)="toggleImageModal()" 
+                [src]="card.images[currentImage]" 
+                [alt]="card.title"
+            />
+            <i 
+                *ngIf="card.images.length > 1"  
+                (click)="onNextImage()" 
+                class="fa-solid fa-circle-chevron-right"
+            ></i>
+        </div>
+    </div>
+
+    <p *ngIf="card.content" [ngStyle]="{ color : card.fontColor}"> {{ card.content }} </p>
+
+    <div class="card-likes basic-flex">
+        <i (click)="handleLike()" class="fa-solid fa-heart" [ngClass]="{ liked : isLiked }"></i>
+        <span class="card-likes-value"> {{ card.likes }} </span>  
+    </div>    
+    
+    <div *ngIf="isImgModalDisplayed" class="images-modal">
+        <i (click)="toggleImageModal()" class="fa-regular fa-circle-xmark"></i>
+        <div *ngIf="card.images" class="modal-image-container">
+            <i 
+                *ngIf="card.images.length > 1" 
+                (click)="onPreviousImage()" 
+                class="fa-solid fa-circle-chevron-left"
+            ></i>
+            <img
+                width="100%"
+                [src]="card.images[currentImage]" 
+                [alt]="card.title"
+            />
+            <i 
+                *ngIf="card.images.length > 1"  
+                (click)="onNextImage()" 
+                class="fa-solid fa-circle-chevron-right"
+            ></i>
+        </div>
+    </div>
+
+</div>

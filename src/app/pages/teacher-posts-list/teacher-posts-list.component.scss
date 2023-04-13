@@ -1,0 +1,15 @@
+.teacher-posts-container {
+    padding: 2em 1em;
+    min-height: 100vh;
+    background-color: #91c0fd;
+
+    .class-selection-btns button {
+        background-color: #243a9c;
+
+        &:hover,
+        &:focus {
+            background-color: #fff;
+            color: #243a9c;
+        }
+    }
+}

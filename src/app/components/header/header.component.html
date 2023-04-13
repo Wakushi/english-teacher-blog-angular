@@ -1,0 +1,68 @@
+<header class="basic-flex">
+    <div (click)="onLogoClickRemoveMenu()" routerLink="" class="header-logo basic-flex">
+        <img class="icon" src="../../assets/images/flag.png" alt="flag icon"/>
+        <h1 [ngStyle]="{ color: isUserLogged ? '#087E8B' : 'black' }">Ms Rambault's Class</h1>
+    </div>
+    
+    <div class="hamburger-icon" (click)="hamburgerMenuToggle()">
+        <div id="hamburger-menu" class="hamburger-menu">
+            <div class="bar top"></div>
+            <div class="bar bottom"></div>
+        </div>
+    </div>
+
+    <div class="modal-container">
+      <div
+        id="clean-modal"
+         class="gallery-clean-modal display-clean-modal"
+       >
+       <nav>
+           <ul>
+
+               <li 
+                    routerLink="students" 
+                    routerLinkActive="active" 
+                    [routerLinkActiveOptions]="{exact:true}" 
+                    (click)="hamburgerMenuToggle()"
+                ><img width="30px" src="../../assets/images/student.png" alt="Students icon"/><span>Students</span></li>
+
+               <li 
+                    routerLink="posts" 
+                    routerLinkActive="active" 
+                    (click)="hamburgerMenuToggle()"
+                ><img width="30px" src="../../assets/images/notebook.png" alt="Posts icon"/><span>Posts</span></li>
+
+               <li 
+                    routerLink="courses" 
+                    routerLinkActive="active" 
+                    (click)="hamburgerMenuToggle()"
+                ><img width="30px" src="../../assets/images/courses.png" alt="Courses icon"/><span>Courses</span></li>
+
+               <li 
+                    class="create-link" 
+                    *ngIf="isUserLogged" 
+                    routerLink="create" 
+                    routerLinkActive="active" 
+                    (click)="hamburgerMenuToggle()"
+                ><img width="30px" src="../../assets/images/create.png" alt="Create icon"/><span>Create</span></li>
+
+               <li 
+                    class="log-link" 
+                    *ngIf="!isUserLogged" 
+                    routerLink="login" 
+                    routerLinkActive="active" 
+                    (click)="hamburgerMenuToggle()"
+                ><img width="30px" src="../../assets/images/key.png" alt="Login icon"/><span>Login</span></li>
+
+               <li 
+                    class="log-link" 
+                    *ngIf="isUserLogged" 
+                    (click)="logOut()"
+                ><img width="30px" src="../../assets/images/key.png" alt="Logout icon"/><span>Logout</span></li>
+                
+           </ul>
+       </nav>
+       </div>
+     </div>
+
+</header>
